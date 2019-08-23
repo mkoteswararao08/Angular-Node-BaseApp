@@ -1,0 +1,22 @@
+<div class="container">
+    <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>AGE</th>
+                <th>Update</th>
+                <th>DELETE</th>
+            </tr>  
+            <tr *ngFor="let user of users">
+                <td> {{user.id}}</td>
+                <td> {{user.name}}</td>
+                <td> {{user.age}}</td>
+                <td><a [routerLink]="['/updateUser',user.id]"><button class="btn btn-primary">Update</button></a></td> 
+                <td><button class="btn btn-success"  (click)="deleteUser(user.id)">Delete</button></td>
+                <!-- Usually this error occurs when we are trying to implement 
+                    both Interpolation and Property data binding on the same html property. (click)="deleteUser({{user.id}})" 
+                  -> no need to write interpolation again because event binding will bindes the data automatically. 
+                -->
+            </tr> 
+    </table>
+</div> 
